@@ -26,14 +26,20 @@
                         </li>
 
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                         {
-                             <li class="nav-item">
+                        {
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Owners" asp-action="Index">Owners</a>
-                             </li>
-                             <li class="nav-item">
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" a asp-area="" asp-controller="Managers" asp-action="Index">Managers</a>
-                             </li>
-                         }
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" a asp-area="" asp-controller="PetTypes" asp-action="Index">Pet Types</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" a asp-area="" asp-controller="ServiceTypes" asp-action="Index">Service Types</a>
+                            </li>
+                        }
                     </ul>
 
                     <ul class="nav navbar-nav align-content-end">
