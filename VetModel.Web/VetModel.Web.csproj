@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\API\" />
     <Folder Include="wwwroot\Images\Pets\" />
   </ItemGroup>
 
