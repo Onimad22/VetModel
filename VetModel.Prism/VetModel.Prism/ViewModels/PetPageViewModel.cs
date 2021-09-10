@@ -1,16 +1,26 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Prism.Navigation;
+using VetModel.Common.Models;
 
 namespace VetModel.Prism.ViewModels
 {
-    public class PetPageViewModel : BindableBase
+    public class PetPageViewModel : ViewModelBase
     {
-        public PetPageViewModel()
-        {
+        private PetResponse _pet;
 
+        public PetPageViewModel(
+            INavigationService navigationService) : base(navigationService)
+        {
+        }
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            if (parameters.ContainsKey("Pet"))
+            {
+                _pet = parameters.GetValue<PetResponse>("Pet");
+                Title = _pet.Name;
+            }
         }
     }
 }

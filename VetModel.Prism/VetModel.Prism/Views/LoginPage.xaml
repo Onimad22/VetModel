@@ -10,37 +10,29 @@
     <StackLayout
         Padding="10">
         <Label
-            Text="Email">
-            
-        </Label>
+            Text="Email"/>
         <Entry
             Text="{Binding Email}"
             Placeholder="Enter your Email..."
-            Keyboard="Email">
-            
-        </Entry>
+            Keyboard="Email"/>
 
         <Label
-            Text="Password">
-            
-        </Label>
+            Text="Password"/>
         <Entry
             Text="{Binding Password}"
             Placeholder="Enter your Password..."
-            IsPassword="True">
-            
-        </Entry>
+            IsPassword="True"/>
         <ActivityIndicator
-            IsRunning="{Binding IsRunning}">
-            
-        </ActivityIndicator>
+            IsRunning="{Binding IsRunning}"
+            VerticalOptions="CenterAndExpand"/>
         <Button
-            VerticalOptions="CenterAndExpand"
+            HeightRequest="46"
+            CornerRadius="23"
+            BackgroundColor="Navy"
             Text="Login"
+            TextColor="White"
             Command="{Binding LoginCommand}"
-            IsEnabled="{Binding IsEnable}">
-            
-        </Button>
+            IsEnabled="{Binding IsEnabled}"/>
 
     </StackLayout>
   
