@@ -32,6 +32,7 @@ namespace VetModel.Prism
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<PetsPage, PetsPageViewModel>();
             containerRegistry.RegisterForNavigation<PetsPage, PetsPageViewModel>();
+            containerRegistry.RegisterForNavigation<PetPage, PetPageViewModel>();
         }
     }
 }

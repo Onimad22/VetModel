@@ -66,9 +66,13 @@
                                     FontAttributes="Bold"
                                     Text="{Binding Born, StringFormat='{0:yyyy/MM/dd}'}"/>
                             </Grid>
-                            <Image
+                                <Image
                                 Grid.Column="2"
-                                Source="ic_chevron_right"/>
+                                Source="ic_chevron_right">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectPetCommand}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
                         </Grid>
                         </Frame>
 
