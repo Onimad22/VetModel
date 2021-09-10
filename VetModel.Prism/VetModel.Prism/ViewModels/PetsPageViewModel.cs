@@ -18,6 +18,15 @@ namespace VetModel.Prism.ViewModels
             Title = "Pets";
         }
 
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+
+            if (parameters.ContainsKey("owner"))
+            {
+                _owner = parameters.GetValue<OwnerResponse>("owner");
+            }
+        }
 
         //public override void OnNavigatingTo(INavigationParameters parameters)
         //{
