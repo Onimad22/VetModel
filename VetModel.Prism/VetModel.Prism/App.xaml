@@ -5,7 +5,12 @@
              x:Class="VetModel.Prism.App">
   <Application.Resources>
 
-    <!-- Application resource dictionary -->
+    <ResourceDictionary>
+
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://elmana.azurewebsites.net/</x:String>
+
+        </ResourceDictionary>
 
   </Application.Resources>
 </prism:PrismApplication>
