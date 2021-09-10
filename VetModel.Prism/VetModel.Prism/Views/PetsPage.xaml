@@ -4,16 +4,24 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="VetModel.Prism.Views.PetsPage"
+             BackgroundColor="Silver"
              Title="{Binding Title}">
 
     <StackLayout
         Padding="10">
         <ListView
+            BackgroundColor="Transparent"
+            SeparatorVisibility="None"
             HasUnevenRows="True"
             ItemsSource="{Binding Pets}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <Frame
+                            CornerRadius="10"
+                            HasShadow="True"
+                            Margin="0,0,0,5">
+                            
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="auto"/>
@@ -62,6 +70,8 @@
                                 Grid.Column="2"
                                 Source="ic_chevron_right"/>
                         </Grid>
+                        </Frame>
+
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
