@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,7 +12,18 @@ namespace VetModel.Common.Services
 {
     public class ApiService : IApiService
     {
-        public async Task<Response> GetTokenAsync(
+        public async Task<bool> CheckConnection (string url)
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return false;
+            }
+
+            return await CrossConnectivity.Current.IsRemoteReachable(url);
+        }
+
+
+        public async Task<Response<TokenResponse>> GetTokenAsync(
             string urlBase,
             string servicePrefix,
             string controller,
@@ -32,7 +44,7 @@ namespace VetModel.Common.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response
+                    return new Response<TokenResponse>
                     {
                         IsSuccess = false,
                         Message = result,
@@ -40,7 +52,7 @@ namespace VetModel.Common.Services
                 }
 
                 var token = JsonConvert.DeserializeObject<TokenResponse>(result);
-                return new Response
+                return new Response<TokenResponse>
                 {
                     IsSuccess = true,
                     Result = token
@@ -48,7 +60,7 @@ namespace VetModel.Common.Services
             }
             catch (Exception ex)
             {
-                return new Response
+                return new Response<TokenResponse>
                 {
                     IsSuccess = false,
                     Message = ex.Message
@@ -56,7 +68,7 @@ namespace VetModel.Common.Services
             }
         }
 
-        public async Task<Response> GetOwnerByEmailAsync(
+        public async Task<Response<OwnerResponse>> GetOwnerByEmailAsync(
             string urlBase,
             string servicePrefix,
             string controller,
@@ -81,7 +93,7 @@ namespace VetModel.Common.Services
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response
+                    return new Response<OwnerResponse>
                     {
                         IsSuccess = false,
                         Message = result,
@@ -89,7 +101,7 @@ namespace VetModel.Common.Services
                 }
 
                 var owner = JsonConvert.DeserializeObject<OwnerResponse>(result);
-                return new Response
+                return new Response<OwnerResponse>
                 {
                     IsSuccess = true,
                     Result = owner
@@ -97,7 +109,7 @@ namespace VetModel.Common.Services
             }
             catch (Exception ex)
             {
-                return new Response
+                return new Response<OwnerResponse>
                 {
                     IsSuccess = false,
                     Message = ex.Message
