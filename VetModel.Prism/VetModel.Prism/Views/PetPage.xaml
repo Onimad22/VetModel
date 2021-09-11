@@ -6,72 +6,77 @@
              x:Class="VetModel.Prism.Views.PetPage"
              Title="{Binding Title}">
 
-    <StackLayout
+    <ScrollView>
+
+        <StackLayout
         Padding="10">
-        <Image
+            <Image
             HeightRequest="250"
             Source="{Binding Pet.ImageUrl}"/>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label
                 Grid.Column="0"
                 Grid.Row="0"
                 Text="Names"/>
-            <Label
+                <Label
                 Grid.Column="1"
                 Grid.Row="0"
                 FontAttributes="Bold"
                 Text="{Binding Pet.Name}"/>
-            <Label
+                <Label
                 Grid.Column="0"
                 Grid.Row="1"
                 Text="Race"/>
-            <Label
+                <Label
                 Grid.Column="1"
                 Grid.Row="1"
                 FontAttributes="Bold"
                 Text="{Binding Pet.Race}"/>
-            <Label
+                <Label
                 Grid.Column="0"
                 Grid.Row="2"
                 Text="Born"/>
-            <Label
+                <Label
                 Grid.Column="1"
                 Grid.Row="2"
                 FontAttributes="Bold"
                 Text="{Binding Pet.Born, StringFormat='{0:yyyy/MM/dd}'}"/>
-            <Label
+                <Label
                 Grid.Column="0"
                 Grid.Row="3"
                 Text="Pet Type"/>
-            <Label
+                <Label
                 Grid.Column="1"
                 Grid.Row="3"
                 FontAttributes="Bold"
                 Text="{Binding Pet.PetType}"/>
-            <Label
+                <Label
                 Grid.Column="0"
                 Grid.Row="4"
                 Text="Remarks"/>
-            <Label
+                <Label
                 Grid.Column="1"
                 Grid.Row="4"
                 FontAttributes="Bold"
                 Text="{Binding Pet.Remarks}"/>
-        </Grid>
-        
+            </Grid>
 
-    </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+   
   
 </ContentPage>
