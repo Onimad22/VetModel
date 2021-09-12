@@ -223,5 +223,11 @@
   <ItemGroup>
     <BundleResource Include="Resources\logo_veterinaria.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_pets.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
