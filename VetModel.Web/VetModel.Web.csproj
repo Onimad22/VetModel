@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="wwwroot\Images\Pets\" />
   </ItemGroup>
 
   <ItemGroup>
