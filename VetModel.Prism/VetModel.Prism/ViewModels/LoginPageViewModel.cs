@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Acr.UserDialogs;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -64,17 +65,19 @@ namespace VetModel.Prism.ViewModels
                 return;
             }
 
-            IsRunning = true;
-            IsEnabled = false;
+            //IsRunning = true;
+            //IsEnabled = false;
+            UserDialogs.Instance.ShowLoading(title: "Analizando");
 
             var url = App.Current.Resources["UrlAPI"].ToString();
             var connection = await _apiService.CheckConnection(url);
 
             if (!connection)
             {
-                IsEnabled = true;
-                IsRunning = false;
+                //IsEnabled = true;
+                //IsRunning = false;
                 await App.Current.MainPage.DisplayAlert("Error", "Check The internet Connection", "Accept");
+                UserDialogs.Instance.HideLoading();
                 return;
             }
 
@@ -90,9 +93,10 @@ namespace VetModel.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
-                IsRunning = false;
-                IsEnabled = true;
+                //IsRunning = false;
+                //IsEnabled = true;
                 await App.Current.MainPage.DisplayAlert("Error", "Email or password incorrect.", "Accept");
+                UserDialogs.Instance.HideLoading();
                 Password = string.Empty;
                 return;
             }
@@ -101,9 +105,10 @@ namespace VetModel.Prism.ViewModels
             var response2 = await _apiService.GetOwnerByEmailAsync(url, "api", "/Owners/GetOwnerByEmail", "bearer", token.Token, Email);
             if (!response2.IsSuccess)
             {
-                IsRunning = false;
-                IsEnabled = true;
+                //IsRunning = false;
+                //IsEnabled = true;
                 await App.Current.MainPage.DisplayAlert("Error", "This user have a big problem, call support.", "Accept");
+                UserDialogs.Instance.HideLoading();
                 return;
             }
 
@@ -113,9 +118,9 @@ namespace VetModel.Prism.ViewModels
                 { "owner", owner }
             };
 
-            IsRunning = false;
-            IsEnabled = true;
-
+            //IsRunning = false;
+            //IsEnabled = true;
+            UserDialogs.Instance.HideLoading();
             await _navigationService.NavigateAsync("PetsPage", parameters);
             Password = string.Empty;
         }
