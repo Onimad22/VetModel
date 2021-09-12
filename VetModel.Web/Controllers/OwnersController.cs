@@ -341,7 +341,7 @@ namespace VetModel.Web.Controllers
                 var history = await _converterHelper.ToHistoryAsync(model, true);
                 _dataContext.Histories.Add(history);
                 await _dataContext.SaveChangesAsync();
-                return RedirectToAction($"{nameof(DetailsPet)}/{model.PetId}");
+                return RedirectToAction("DetailsPet", "Owners", new { id = model.PetId });
             }
 
             model.ServiceTypes = _combosHelper.GetComboServiceTypes();
@@ -375,7 +375,7 @@ namespace VetModel.Web.Controllers
                 var history = await _converterHelper.ToHistoryAsync(model, false);
                 _dataContext.Histories.Update(history);
                 await _dataContext.SaveChangesAsync();
-                return RedirectToAction($"{nameof(DetailsPet)}/{model.PetId}");
+                return RedirectToAction("DetailsPet", "Owners", new { id = model.PetId });
             }
 
             model.ServiceTypes = _combosHelper.GetComboServiceTypes();
@@ -399,7 +399,7 @@ namespace VetModel.Web.Controllers
 
             _dataContext.Histories.Remove(history);
             await _dataContext.SaveChangesAsync();
-            return RedirectToAction($"{nameof(DetailsPet)}/{history.Pet.Id}");
+            return RedirectToAction("DetailsPet", "Owners", new { id = id.Value });
         }
 
         public async Task<IActionResult> DeletePet(int? id)

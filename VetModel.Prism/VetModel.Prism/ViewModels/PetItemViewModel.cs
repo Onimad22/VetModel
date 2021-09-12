@@ -19,9 +19,9 @@ private async void SelectPet()
         {
             var parameters = new NavigationParameters
             {
-                { "Pet",this}
+                { "pet",this}
             };
-            await _navigationService.NavigateAsync("PetPage", parameters);
+            await _navigationService.NavigateAsync("HistoriesPage", parameters);
         }
     }
 }

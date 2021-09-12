@@ -22,6 +22,6 @@ namespace VetModel.Common.Services
             string controller,
             TokenRequest request);
 
-        Task<bool> CheckConnection(string url)
+        Task<bool> CheckConnection(string url); 
     }
 }

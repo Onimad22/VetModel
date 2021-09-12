@@ -20,9 +20,9 @@ namespace VetModel.Prism.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            if (parameters.ContainsKey("Pet"))
+            if (parameters.ContainsKey("pet"))
             {
-                Pet = parameters.GetValue<PetResponse>("Pet");
+                Pet = parameters.GetValue<PetResponse>("pet");
                 Title = Pet.Name;
                 
             }

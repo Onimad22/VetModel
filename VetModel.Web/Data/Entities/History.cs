@@ -27,9 +27,6 @@ namespace VetModel.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public DateTime DateLocal => Date.ToLocalTime();
 
-        [Display(Name = "Date")]
-        [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string DateString { get; set; }
 
         public ServiceType ServiceType { get; set; }
