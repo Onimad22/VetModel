@@ -84,6 +84,12 @@ else
                     @Html.DisplayNameFor(model => model.Pets.FirstOrDefault().BornLocal)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Pets.FirstOrDefault().Genero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Pets.FirstOrDefault().Castrado)
+                </th>
+                <th>
                     # Histories
                 </th>
                 <th>
@@ -115,6 +121,12 @@ else
                         @Html.DisplayFor(modelItem => item.BornLocal)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Genero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Castrado)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Histories.Count)
                     </td>
                     <td>
@@ -140,9 +152,11 @@ else
         $(document).ready(function () {
             // Delete item
             var item_to_delete;
+
             $('.deleteItem').click((e) => {
                 item_to_delete = e.currentTarget.dataset.id;
             });
+
             $("#btnYesDelete").click(function () {
                 window.location.href = '/Owners/DeletePet/' + item_to_delete;
             });

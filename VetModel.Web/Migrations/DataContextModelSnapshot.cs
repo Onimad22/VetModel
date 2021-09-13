@@ -160,10 +160,8 @@ namespace VetModel.Web.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DateString")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
+                    b.Property<string>("DateLocalString")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -178,6 +176,9 @@ namespace VetModel.Web.Migrations
 
                     b.Property<int?>("ServiceTypeId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
@@ -231,6 +232,15 @@ namespace VetModel.Web.Migrations
 
                     b.Property<DateTime>("Born")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Castrado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(2)")
+                        .HasMaxLength(2);
+
+                    b.Property<string>("Genero")
+                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(10);
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VetModel.Web.Migrations
 {
-    public partial class completeDb : Migration
+    public partial class CompleteDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -229,6 +229,8 @@ namespace VetModel.Web.Migrations
                     Name = table.Column<string>(maxLength: 50, nullable: false),
                     ImageUrl = table.Column<string>(nullable: true),
                     Race = table.Column<string>(maxLength: 50, nullable: true),
+                    Genero = table.Column<string>(maxLength: 10, nullable: true),
+                    Castrado = table.Column<string>(maxLength: 2, nullable: false),
                     Born = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
                     PetTypeId = table.Column<int>(nullable: true),
@@ -260,7 +262,8 @@ namespace VetModel.Web.Migrations
                     Description = table.Column<string>(maxLength: 100, nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
-                    DateString = table.Column<string>(maxLength: 20, nullable: false),
+                    Time = table.Column<DateTime>(nullable: false),
+                    DateLocalString = table.Column<string>(nullable: true),
                     ServiceTypeId = table.Column<int>(nullable: true),
                     PetId = table.Column<int>(nullable: true)
                 },

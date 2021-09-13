@@ -74,8 +74,8 @@ namespace VetModel.Web.Data
             {
                 var owner = _dataContext.Owners.FirstOrDefault();
                 var petType = _dataContext.PetTypes.FirstOrDefault();
-                AddPet("Otto", owner, petType, "Shih tzu");
-                AddPet("Killer", owner, petType, "Dobermann");
+                AddPet("Otto", owner, petType, "Shih tzu","si","macho");
+                AddPet("Killer", owner, petType, "Dobermann","no","hembra");
                 await _dataContext.SaveChangesAsync();
             }
         }
@@ -119,7 +119,7 @@ namespace VetModel.Web.Data
             }
         }
 
-        private void AddPet(string name, Owner owner, PetType petType, string race)
+        private void AddPet(string name, Owner owner, PetType petType, string race, string castrado, string genero)
         {
             _dataContext.Pets.Add(new Pet
             {
@@ -127,7 +127,9 @@ namespace VetModel.Web.Data
                 Name = name,
                 Owner = owner,
                 PetType = petType,
-                Race = race
+                Race = race,
+                Castrado = castrado,
+                Genero=genero
             });
         }
 

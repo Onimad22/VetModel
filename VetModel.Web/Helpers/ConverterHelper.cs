@@ -33,7 +33,10 @@ namespace VetModel.Web.Helpers
                 Owner = await _dataContext.Owners.FindAsync(model.OwnerId),
                 PetType = await _dataContext.PetTypes.FindAsync(model.PetTypeId),
                 Race = model.Race,
-                Remarks = model.Remarks
+                Remarks = model.Remarks,
+                Genero = model.Genero,
+                Castrado=model.Castrado
+                
             };
 
             return pet;
@@ -54,6 +57,8 @@ namespace VetModel.Web.Helpers
                 Id = pet.Id,
                 OwnerId = pet.Owner.Id,
                 PetTypeId = pet.PetType.Id,
+                Genero=pet.Genero,
+                Castrado=pet.Castrado,
                 PetTypes = _combosHelper.GetComboPetTypes()
             };
         }
@@ -62,8 +67,9 @@ namespace VetModel.Web.Helpers
         {
             return new History
             {
-                Date = model.Date.ToUniversalTime(),
-                DateString = "hola",
+                DateLocalString = model.Date.Date.ToShortDateString(),
+                Date = model.Date.Date.ToUniversalTime(),
+                Time = model.Time,
                 Description = model.Description,
                 Id = isNew ? 0 : model.Id,
                 Pet = await _dataContext.Pets.FindAsync(model.PetId),
@@ -77,6 +83,7 @@ namespace VetModel.Web.Helpers
             return new HistoryViewModel
             {
                 Date = history.Date,
+                Time = history.Time,
                 Description = history.Description,
                 Id = history.Id,
                 PetId = history.Pet.Id,

@@ -428,5 +428,35 @@ namespace VetModel.Web.Controllers
             await _dataContext.SaveChangesAsync();
             return RedirectToAction("Details", "Owners", new { id = pet.Owner.Id });
         }
+
+        //ESTE SIRVE
+        public IActionResult Agenda()
+        {
+            var ff = DateTime.Now.Date.ToShortDateString();
+            ViewBag.fecha = ff;
+            return View(_dataContext.Histories
+                .Include(h => h.Pet)
+                .ThenInclude(p => p.Owner)
+                .ThenInclude(o => o.User)
+                .Include(o => o.ServiceType)
+                .Where(x => x.DateLocalString == ff)
+                .OrderBy(x => x.Time)
+                );
+        }
+        [HttpPost]
+        public IActionResult Agenda(DateTime fecha)
+        {
+            string ff = fecha.Date.ToShortDateString();
+            ViewBag.fecha = ff;
+            return View(_dataContext.Histories
+                .Include(h => h.Pet)
+                .ThenInclude(p => p.Owner)
+                .ThenInclude(o => o.User)
+                .Include(o => o.ServiceType)
+                .Where(x => x.DateLocalString == ff)
+                .OrderBy(x => x.Time)
+                );
+
+        }
     }
 }
