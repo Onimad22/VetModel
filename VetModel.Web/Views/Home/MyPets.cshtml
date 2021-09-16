@@ -34,7 +34,13 @@
                                 @Html.DisplayNameFor(model => model.Race)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Born)
+                                @Html.DisplayNameFor(model => model.BornLocal)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Genero)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Castrado)
                             </th>
                             <th>
                                 Histories
@@ -45,34 +51,40 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Name)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PetType.Name)
-                                </td>
-                                <td>
-                                    @if (!string.IsNullOrEmpty(item.ImageUrl))
-                                    {
-                                        <img src="@Url.Content(item.ImageUrl)" alt="Image" style="width:150px;height:150px;max-width: 100%; height: auto;" />
-                                    }
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Race)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Born)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Histories.Count)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                                    <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id" class="btn btn-info">Details</a>
-                                    <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Delete</button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PetType.Name)
+                            </td>
+                            <td>
+                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                {
+                                    <img src="@Url.Content(item.ImageUrl)" alt="Image" style="width:150px;height:150px;max-width: 100%; height: auto;" />
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Race)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.BornLocal)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Genero)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Castrado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Histories.Count)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="Details" class="btn btn-info" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                                <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                            </td>
+                        </tr>
                         }
                     </tbody>
                 </table>

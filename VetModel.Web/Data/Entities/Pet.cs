@@ -22,6 +22,7 @@ namespace VetModel.Web.Data.Entities
         public string Race { get; set; }
 
         [MaxLength(10, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+        [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Genero { get; set; }
 
         [Display(Name = "Castrado (si/no)")]

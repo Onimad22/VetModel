@@ -10,7 +10,7 @@ namespace VetModel.Web.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Document")]
+        [Display(Name = "Password")]
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Document { get; set; }

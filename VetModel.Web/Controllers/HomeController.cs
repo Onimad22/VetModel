@@ -100,6 +100,8 @@ namespace VetModel.Web.Controllers
                 PetTypeId = pet.PetType.Id,
                 PetTypes = _combosHelper.GetComboPetTypes(),
                 Race = pet.Race,
+                Genero = pet.Genero,
+                Castrado = pet.Castrado,
                 Remarks = pet.Remarks
             };
 
@@ -141,6 +143,8 @@ namespace VetModel.Web.Controllers
                     Owner = await _dataContext.Owners.FindAsync(model.OwnerId),
                     PetType = await _dataContext.PetTypes.FindAsync(model.PetTypeId),
                     Race = model.Race,
+                    Genero = model.Genero,
+                    Castrado = model.Castrado,
                     Remarks = model.Remarks
                 };
 
@@ -254,6 +258,8 @@ namespace VetModel.Web.Controllers
                     Owner = await _dataContext.Owners.FindAsync(model.OwnerId),
                     PetType = await _dataContext.PetTypes.FindAsync(model.PetTypeId),
                     Race = model.Race,
+                    Genero=model.Genero,
+                    Castrado=model.Castrado,
                     Remarks = model.Remarks
                 };
 
