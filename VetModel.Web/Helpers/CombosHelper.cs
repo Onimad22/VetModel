@@ -28,7 +28,7 @@ namespace VetModel.Web.Helpers
 
             list.Insert(0, new SelectListItem
             {
-                Text = "[Select a pet type...]",
+                Text = "[Selecciona una especie...]",
                 Value = "0"
             });
 
@@ -47,7 +47,7 @@ namespace VetModel.Web.Helpers
 
             list.Insert(0, new SelectListItem
             {
-                Text = "[Select a service type...]",
+                Text = "[Selecciona un servicio...]",
                 Value = "0"
             });
 

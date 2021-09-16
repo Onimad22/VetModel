@@ -11,7 +11,7 @@ namespace VetModel.Web.Models
         public int PetId { get; set; }
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [Display(Name = "Service Type")]
+        [Display(Name = "Servicio")]
         [Range(1, int.MaxValue, ErrorMessage = "You must select a service type.")]
         public int ServiceTypeId { get; set; }
 

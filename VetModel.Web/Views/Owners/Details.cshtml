@@ -1,13 +1,13 @@
 ﻿@model VetModel.Web.Data.Entities.Owner
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h2>Owner</h2>
+<h2>Cliente</h2>
 
 <div>
-    <h4>Details</h4>
+    <h4>Detalles</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -41,13 +41,13 @@
             @Html.DisplayFor(model => model.User.Address)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.User.PhoneNumber)
+           Telefono
         </dt>
         <dd>
             @Html.DisplayFor(model => model.User.PhoneNumber)
         </dd>
         <dt>
-            # Pets
+            # Mascotas
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Pets.Count)
@@ -55,13 +55,13 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-    <a asp-action="AddPet" asp-route-id="@Model.Id" class="btn btn-primary">Add Pet</a>
-    <a asp-action="Index" class="btn btn-success">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="AddPet" asp-route-id="@Model.Id" class="btn btn-primary">Agregar Mascota</a>
+    <a asp-action="Index" class="btn btn-success">Volver</a>
 </div>
 @if (Model.Pets.Count == 0)
 {
-    <h4>Not pets added yet.</h4>
+    <h4>Todavia no hay mascotas agregadas</h4>
 }
 else
 {
@@ -90,7 +90,7 @@ else
                     @Html.DisplayNameFor(model => model.Pets.FirstOrDefault().Castrado)
                 </th>
                 <th>
-                    # Histories
+                    # Historial
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Pets.FirstOrDefault().Remarks)
@@ -133,9 +133,9 @@ else
                         @Html.DisplayFor(modelItem => item.Remarks)
                     </td>
                     <td>
-                        <a asp-action="EditPet" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                        <a asp-action="DetailsPet" asp-route-id="@item.Id" class="btn btn-info">Details</a>
-                        <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                        <a asp-action="EditPet" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                        <a asp-action="DetailsPet" asp-route-id="@item.Id" class="btn btn-info">Detalle</a>
+                        <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Borrar</button>
                     </td>
                 </tr>
             }

@@ -1,19 +1,19 @@
 ﻿@model VetModel.Web.Data.Entities.Pet
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
 }
 
-<h2>Pet</h2>
+<h2>Mascota</h2>
 
 <div>
-    <h4>Details</h4>
+    <h4>Detalles</h4>
     <hr />
     <div class="row">
         <div class="col-md-4">
             <dl class="dl-horizontal">
                 <dt>
-                    Owner
+                    Cliente
                 </dt>
                 <dd>
                     @Html.DisplayFor(model => model.Owner.User.FullName)
@@ -65,15 +65,15 @@
     </div>
 </div>
 <div>
-    <a asp-action="EditPet" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
-    <a asp-action="AddHistory" asp-route-id="@Model.Id" class="btn btn-primary">Add History</a>
-    <a asp-action="Details" asp-route-id="@Model.Owner.Id" class="btn btn-success">Back to Owner</a>
+    <a asp-action="EditPet" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+    <a asp-action="AddHistory" asp-route-id="@Model.Id" class="btn btn-primary">Agregar Ficha</a>
+    <a asp-action="Details" asp-route-id="@Model.Owner.Id" class="btn btn-success">Volver</a>
 </div>
-<h4>History</h4>
+<h4>Historial</h4>
 <hr />
 @if (Model.Histories.Count == 0)
 {
-    <h5>Not histories added yet.</h5>
+    <h5>Todavia no tiene fichas ingresadas</h5>
 }
 else
 {
@@ -112,8 +112,8 @@ else
                         @Html.DisplayFor(modelItem => item.Remarks)
                     </td>
                     <td>
-                        <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                        <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                        <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                        <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Borrar</button>
                     </td>
                 </tr>
             }

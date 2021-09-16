@@ -23,12 +23,14 @@ namespace VetModel.Web.Data
         {
             await _dataContext.Database.EnsureCreatedAsync();
             await CheckRoles();
-            var manager = await CheckUserAsync("1010", "Juan", "Zuluaga", "jzuluaga55@gmail.com", "350 634 2747", "Calle Luna Calle Sol", "Admin");
-            var customer = await CheckUserAsync("2020", "Juan", "Zuluaga", "jzuluaga55@hotmail.com", "350 634 2747", "Calle Luna Calle Sol", "Customer");
+            var manager1 = await CheckUserAsync("123456", "yo", "yo", "yo@gmail.com", "72695202", "Calle Luna Calle Sol", "Admin");
+            var manager = await CheckUserAsync("123456", "Manuel", "Olmos", "ManuelOlmos@gmail.com", "72695202", "Calle Luna Calle Sol", "Admin");
+            var customer = await CheckUserAsync("123456", "Josefa", "Leiva", "Josefa@gmail.com", "76045372", "Entrada Balcon 2", "Customer");
             await CheckPetTypesAsync();
             await CheckServiceTypesAsync();
             await CheckOwnerAsync(customer);
             await CheckManagerAsync(manager);
+            await CheckManagerAsync(manager1);
             await CheckPetsAsync();
         }
 
@@ -95,8 +97,10 @@ namespace VetModel.Web.Data
         {
             if (!_dataContext.PetTypes.Any())
             {
-                _dataContext.PetTypes.Add(new PetType { Name = "Perro" });
-                _dataContext.PetTypes.Add(new PetType { Name = "Gato" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Canino" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Felino" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Equino" });
+                _dataContext.PetTypes.Add(new PetType { Name = "Bovino" });
                 await _dataContext.SaveChangesAsync();
             }
         }

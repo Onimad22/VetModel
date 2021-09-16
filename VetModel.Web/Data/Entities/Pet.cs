@@ -10,18 +10,20 @@ namespace VetModel.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        [Display(Name = "Name")]
+        [Display(Name = "Nombre")]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Name { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Imagen")]
         public string ImageUrl { get; set; }
 
+        [Display(Name = "Raza")]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         public string Race { get; set; }
 
-        [MaxLength(10, ErrorMessage = "The {0} field can not have more than {1} characters.")]
+        [Display(Name = "Genero (M/H)")]
+        [MaxLength(1, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Genero { get; set; }
 
@@ -30,11 +32,12 @@ namespace VetModel.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Castrado { get; set; }
 
-        [Display(Name = "Born")]
+        [Display(Name = "Nacimiento")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Born { get; set; }
 
+        [Display(Name = "Notas")]
         public string Remarks { get; set; }
 
         //TODO: replace the correct URL for the image
@@ -42,8 +45,8 @@ namespace VetModel.Web.Data.Entities
             ? null
             : $"https://elmana.azurewebsites.net{ImageUrl.Substring(1)}";
 
-        [Display(Name = "Born")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+        [Display(Name = "Nacimiento")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BornLocal => Born.ToLocalTime();
 
         public PetType PetType { get; set; }

@@ -15,7 +15,7 @@
 
 
     <div style="padding:20px 0px 0px 0px">
-        <p style="font:900">
+        <p style="font-family:cursive">
             @ViewBag.fecha
         </p>
     </div>
@@ -25,9 +25,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.Time)
             </th>
@@ -40,9 +38,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Remarks)
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -50,9 +46,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateLocal)
-                </td>
+               
                 <td>
                     @Html.DisplayFor(modelItem => item.Time)
                 </td>
@@ -65,13 +59,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Remarks)
-                </td>
+                
 
                 <td>
-                    <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-                    <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Delete</button>
+                    <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                    <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Borrar</button>
                 </td>
             </tr>
         }

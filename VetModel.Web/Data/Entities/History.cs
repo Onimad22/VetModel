@@ -10,24 +10,25 @@ namespace VetModel.Web.Data.Entities
     {
         public int Id { get; set; }
 
-        [Display(Name = "Description")]
+        [Display(Name = "Descripcion")]
         [MaxLength(100, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Description { get; set; }
 
-        [Display(Name = "Date")]
+        [Display(Name = "Fecha")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Date { get; set; }
 
+        [Display(Name = "Notas")]
         public string Remarks { get; set; }
 
-        [Display(Name = "Date")]
+        [Display(Name = "Fecha")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DateLocal => Date.ToLocalTime();
 
-        [Display(Name = "Time")]
+        [Display(Name = "Hora")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime Time { get; set; }
