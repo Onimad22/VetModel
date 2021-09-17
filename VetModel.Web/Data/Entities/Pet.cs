@@ -35,6 +35,7 @@ namespace VetModel.Web.Data.Entities
         [Display(Name = "Nacimiento")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.DateTime)]
         public DateTime Born { get; set; }
 
         [Display(Name = "Notas")]
