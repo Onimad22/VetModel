@@ -239,8 +239,9 @@ namespace VetModel.Web.Migrations
                         .HasMaxLength(2);
 
                     b.Property<string>("Genero")
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)")
+                        .HasMaxLength(1);
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");

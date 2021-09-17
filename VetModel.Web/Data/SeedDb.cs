@@ -76,8 +76,8 @@ namespace VetModel.Web.Data
             {
                 var owner = _dataContext.Owners.FirstOrDefault();
                 var petType = _dataContext.PetTypes.FirstOrDefault();
-                AddPet("Otto", owner, petType, "Shih tzu","si","macho");
-                AddPet("Killer", owner, petType, "Dobermann","no","hembra");
+                AddPet("Otto", owner, petType, "Shih tzu","si","m");
+                AddPet("Killer", owner, petType, "Dobermann","no","h");
                 await _dataContext.SaveChangesAsync();
             }
         }

@@ -10,8 +10,8 @@ using VetModel.Web.Data;
 namespace VetModel.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210913215302_CompleteDB")]
-    partial class CompleteDB
+    [Migration("20210917003817_completeDB")]
+    partial class completeDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -241,8 +241,9 @@ namespace VetModel.Web.Migrations
                         .HasMaxLength(2);
 
                     b.Property<string>("Genero")
-                        .HasColumnType("nvarchar(10)")
-                        .HasMaxLength(10);
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)")
+                        .HasMaxLength(1);
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
