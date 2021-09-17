@@ -25,12 +25,15 @@
 <table class="table">
     <thead>
         <tr>
-           
+
             <th>
                 @Html.DisplayNameFor(model => model.Time)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Pet.Owner.User.FullName)
+                Cliente
+            </th>
+            <th>
+                Mascota
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ServiceType.Name)
@@ -38,34 +41,37 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-           
+
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-               
-                <td>
-                    @Html.DisplayFor(modelItem => item.Time)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pet.Owner.User.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ServiceType.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                
+        <tr>
 
-                <td>
-                    <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
-                    <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Borrar</button>
-                </td>
-            </tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.Owner.User.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pet.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+
+
+            <td>
+                <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                <button data-id="@item.Id" class="btn btn-danger deleteItem" data-toggle="modal" data-target="#deleteDialog">Borrar</button>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
