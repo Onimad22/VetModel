@@ -399,7 +399,7 @@ namespace VetModel.Web.Controllers
 
             _dataContext.Histories.Remove(history);
             await _dataContext.SaveChangesAsync();
-            return RedirectToAction("DetailsPet", "Owners", new { id = id.Value });
+            return RedirectToAction("DetailsPet", "Owners", new { id =  history.Pet.Id});
         }
 
         public async Task<IActionResult> DeletePet(int? id)

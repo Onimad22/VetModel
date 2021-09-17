@@ -25,7 +25,7 @@ namespace VetModel.Web.Helpers
         {
             var pet = new Pet
             {
-                Born = model.Born,
+                Born = model.Born.Date.ToUniversalTime(),
                 Histories = model.Histories,
                 Id = isNew ? 0 : model.Id,
                 ImageUrl = path,

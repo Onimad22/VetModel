@@ -17,8 +17,8 @@ namespace VetModel.Web.Data.Entities
 
         [Display(Name = "Fecha")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = false)]
         public DateTime Date { get; set; }
 
         [Display(Name = "Notas")]

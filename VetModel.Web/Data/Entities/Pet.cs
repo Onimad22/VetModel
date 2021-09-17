@@ -32,11 +32,13 @@ namespace VetModel.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Castrado { get; set; }
 
+
         [Display(Name = "Nacimiento")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = false)]
         public DateTime Born { get; set; }
+
 
         [Display(Name = "Notas")]
         public string Remarks { get; set; }
@@ -46,8 +48,9 @@ namespace VetModel.Web.Data.Entities
             ? null
             : $"https://elmana.azurewebsites.net{ImageUrl.Substring(1)}";
 
+
         [Display(Name = "Nacimiento")]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BornLocal => Born.ToLocalTime();
 
         public PetType PetType { get; set; }
