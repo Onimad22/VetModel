@@ -30,6 +30,7 @@ namespace VetModel.Web.Data.Entities
 
         [Display(Name = "Hora")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
+        [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime Time { get; set; }
 
