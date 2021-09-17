@@ -446,7 +446,7 @@ namespace VetModel.Web.Controllers
         [HttpPost]
         public IActionResult Agenda(DateTime fecha)
         {
-            string ff = fecha.Date.ToShortDateString();
+            string ff = fecha.Date.ToString(@"dd/MM/yyyy");
             ViewBag.fecha = ff;
             return View(_dataContext.Histories
                 .Include(h => h.Pet)
