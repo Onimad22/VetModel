@@ -432,7 +432,7 @@ namespace VetModel.Web.Controllers
         //ESTE SIRVE
         public IActionResult Agenda()
         {
-            var ff = DateTime.Now.Date.ToShortDateString();
+            var ff = DateTime.Now.Date.ToString(@"dd/MM/yyyy");
             ViewBag.fecha = ff;
             return View(_dataContext.Histories
                 .Include(h => h.Pet)

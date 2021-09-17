@@ -67,7 +67,7 @@ namespace VetModel.Web.Helpers
         {
             return new History
             {
-                DateLocalString = model.Date.Date.ToShortDateString(),
+                DateLocalString = model.Date.ToString(@"dd/MM/yyyy"),
                 Date = model.Date.Date.ToUniversalTime(),
                 Time = model.Time,
                 Description = model.Description,
