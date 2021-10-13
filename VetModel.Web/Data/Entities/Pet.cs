@@ -46,7 +46,7 @@ namespace VetModel.Web.Data.Entities
         //TODO: replace the correct URL for the image
         public string ImageFullPath => string.IsNullOrEmpty(ImageUrl)
             ? null
-            : $"https://elmana.azurewebsites.net{ImageUrl.Substring(1)}";
+            : $"https://veterinariaandy.azurewebsites.net{ImageUrl.Substring(1)}";
 
 
         [Display(Name = "Nacimiento")]

@@ -1,0 +1,41 @@
+﻿.imagenuno{
+
+    background-image: url(../Images/primera.jpg);
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size:cover;
+    height:44em;
+   margin-left:-12px;
+   margin-right:-12px;
+   
+}
+
+.imagendos {
+    background-image: url(../Images/segunda.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 44em;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.imagentres {
+    background-image: url(../Images/tercera.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 44em;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.cajatexto{
+    position:center
+}
+
+
+.titulo{
+ font-family:Arial;
+ color:red;
+}
