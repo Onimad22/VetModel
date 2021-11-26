@@ -92,8 +92,12 @@ else
                                     @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Description)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Remarks)
+                                    @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Monto)
                                 </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Pago)
+                                </th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -110,8 +114,12 @@ else
                                         @Html.DisplayFor(modelItem => item.Description)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Remarks)
+                                        @Html.DisplayFor(modelItem => item.Monto)
                                     </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Pago)
+                                    </td>
+
                                 </tr>
                             }
                         </tbody>

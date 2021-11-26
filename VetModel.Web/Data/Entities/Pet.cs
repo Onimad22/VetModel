@@ -53,6 +53,8 @@ namespace VetModel.Web.Data.Entities
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime BornLocal => Born.ToLocalTime();
 
+        public double Deuda { get; set; }
+
         public PetType PetType { get; set; }
 
         public Owner Owner { get; set; }

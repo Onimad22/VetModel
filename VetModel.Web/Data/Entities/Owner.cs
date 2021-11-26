@@ -12,7 +12,9 @@ namespace VetModel.Web.Data.Entities
 
         public User User { get; set; }
 
-       
+        public double Deuda { get; set; }
+
+
         public ICollection<Pet> Pets { get; set; }
 
     }

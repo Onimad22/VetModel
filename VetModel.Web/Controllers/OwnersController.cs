@@ -38,6 +38,10 @@ namespace VetModel.Web.Controllers
 
         public IActionResult Index()
         {
+
+
+
+
             return View(_dataContext.Owners
                 .Include(o => o.User)
                 .Include(o => o.Pets));
@@ -341,6 +345,32 @@ namespace VetModel.Web.Controllers
                 var history = await _converterHelper.ToHistoryAsync(model, true);
                 _dataContext.Histories.Add(history);
                 await _dataContext.SaveChangesAsync();
+
+                var deuda = _dataContext.Histories
+                    .Where(p => p.Pet.Id == history.Pet.Id)
+                    .Where(d => d.Pago == false)
+                    .ToList();
+
+                var pet = _dataContext.Pets
+                    .Include(o=>o.Owner)
+                    .FirstOrDefault(p => p.Id == history.Pet.Id);
+
+                var deudaOwner = _dataContext.Histories
+                    .Where(p => p.Pet.Owner.Id == pet.Owner.Id)
+                    .Where(d => d.Pago == false)
+                    .ToList();
+
+                pet.Deuda = deuda.Sum(d => d.Monto);
+                _dataContext.Pets.Update(pet);
+                await _dataContext.SaveChangesAsync();
+
+                var owner = _dataContext.Owners
+                    .FirstOrDefault(p => p.Id == history.Pet.Owner.Id);
+
+                owner.Deuda = deudaOwner.Sum(d => d.Monto);
+                _dataContext.Owners.Update(owner);
+                await _dataContext.SaveChangesAsync();
+
                 return RedirectToAction("DetailsPet", "Owners", new { id = model.PetId });
             }
 
@@ -375,6 +405,35 @@ namespace VetModel.Web.Controllers
                 var history = await _converterHelper.ToHistoryAsync(model, false);
                 _dataContext.Histories.Update(history);
                 await _dataContext.SaveChangesAsync();
+
+                var deuda = _dataContext.Histories
+                   .Where(p => p.Pet.Id == history.Pet.Id)
+                   .Where(d => d.Pago == false)
+                   .ToList();
+
+                var pet = _dataContext.Pets
+                    .Include(o => o.Owner)
+                    .FirstOrDefault(p => p.Id == history.Pet.Id);
+
+                var deudaOwner = _dataContext.Histories
+                    .Where(p => p.Pet.Owner.Id == pet.Owner.Id)
+                    .Where(d => d.Pago == false)
+                    .ToList();
+
+                pet.Deuda = deuda.Sum(d => d.Monto);
+                _dataContext.Pets.Update(pet);
+                await _dataContext.SaveChangesAsync();
+
+                var owner = _dataContext.Owners
+                    .FirstOrDefault(p => p.Id == history.Pet.Owner.Id);
+
+                owner.Deuda = deudaOwner.Sum(d => d.Monto);
+                _dataContext.Owners.Update(owner);
+                await _dataContext.SaveChangesAsync();
+
+
+
+
                 return RedirectToAction("DetailsPet", "Owners", new { id = model.PetId });
             }
 
@@ -399,6 +458,32 @@ namespace VetModel.Web.Controllers
 
             _dataContext.Histories.Remove(history);
             await _dataContext.SaveChangesAsync();
+
+            var deuda = _dataContext.Histories
+                   .Where(p => p.Pet.Id == history.Pet.Id)
+                   .Where(d => d.Pago == false)
+                   .ToList();
+
+            var pet = _dataContext.Pets
+                .Include(o => o.Owner)
+                .FirstOrDefault(p => p.Id == history.Pet.Id);
+
+            var deudaOwner = _dataContext.Histories
+                .Where(p => p.Pet.Owner.Id == pet.Owner.Id)
+                .Where(d => d.Pago == false)
+                .ToList();
+
+            pet.Deuda = deuda.Sum(d => d.Monto);
+            _dataContext.Pets.Update(pet);
+            await _dataContext.SaveChangesAsync();
+
+            var owner = _dataContext.Owners
+                .FirstOrDefault(p => p.Id == history.Pet.Owner.Id);
+
+            owner.Deuda = deudaOwner.Sum(d => d.Monto);
+            _dataContext.Owners.Update(owner);
+            await _dataContext.SaveChangesAsync();
+
             return RedirectToAction("DetailsPet", "Owners", new { id =  history.Pet.Id});
         }
 

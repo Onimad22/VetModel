@@ -165,8 +165,13 @@ namespace VetModel.Web.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Monto")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("Pago")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("PetId")
                         .HasColumnType("int");
@@ -213,6 +218,9 @@ namespace VetModel.Web.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<double>("Deuda")
+                        .HasColumnType("float");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -237,6 +245,9 @@ namespace VetModel.Web.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(2)")
                         .HasMaxLength(2);
+
+                    b.Property<double>("Deuda")
+                        .HasColumnType("float");
 
                     b.Property<string>("Genero")
                         .IsRequired()

@@ -11,7 +11,6 @@ namespace VetModel.Web.Data.Entities
         public int Id { get; set; }
 
         [Display(Name = "Descripcion")]
-        [MaxLength(100, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Description { get; set; }
 
@@ -33,6 +32,12 @@ namespace VetModel.Web.Data.Entities
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime Time { get; set; }
+
+        [Display(Name = "Monto")]
+        public double Monto { get; set; }
+
+        [Display(Name = "Pago")]
+        public bool Pago { get; set; }
 
         public String DateLocalString { get; set; }
 

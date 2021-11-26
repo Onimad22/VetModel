@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VetModel.Web.Migrations
 {
-    public partial class completeDB : Migration
+    public partial class CompleteDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -207,7 +207,8 @@ namespace VetModel.Web.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    UserId = table.Column<string>(nullable: true)
+                    UserId = table.Column<string>(nullable: true),
+                    Deuda = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -233,6 +234,7 @@ namespace VetModel.Web.Migrations
                     Castrado = table.Column<string>(maxLength: 2, nullable: false),
                     Born = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
+                    Deuda = table.Column<double>(nullable: false),
                     PetTypeId = table.Column<int>(nullable: true),
                     OwnerId = table.Column<int>(nullable: true)
                 },
@@ -259,10 +261,12 @@ namespace VetModel.Web.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(maxLength: 100, nullable: false),
+                    Description = table.Column<string>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Remarks = table.Column<string>(nullable: true),
                     Time = table.Column<DateTime>(nullable: false),
+                    Monto = table.Column<double>(nullable: false),
+                    Pago = table.Column<bool>(nullable: false),
                     DateLocalString = table.Column<string>(nullable: true),
                     ServiceTypeId = table.Column<int>(nullable: true),
                     PetId = table.Column<int>(nullable: true)

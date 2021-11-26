@@ -92,6 +92,12 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Remarks)
                 </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Monto)
+                </th>
+                 <th>
+                    @Html.DisplayNameFor(model => model.Histories.FirstOrDefault().Pago)
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -110,6 +116,12 @@ else
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Remarks)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.Monto)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.Pago)
                     </td>
                     <td>
                         <a asp-action="EditHistory" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
